@@ -10,9 +10,9 @@ from app.api.webhook import router as webhook_router
 async def lifespan(app: FastAPI):
     """Application lifespan events"""
     configure_logging()
-    print((f"Starting {settings.app_name} v{settings.app_version}")
+    print(f"Starting {settings.app_name} v{settings.app_version}")
     yield
-    print(("Shutting down application")
+    print("Shutting down application")
 
 
 app = FastAPI(
