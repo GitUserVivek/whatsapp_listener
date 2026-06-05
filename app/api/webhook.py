@@ -11,7 +11,7 @@ async def verify_webhook(
     challenge: str = Query(alias="hub.challenge"),
 ):
     """Webhook verification endpoint"""
-    logger.info(f"Webhook verification: mode={mode}")
+    print(f"Webhook verification: mode={mode}")
     return challenge
 
 
@@ -28,7 +28,7 @@ async def receive_webhook(request: Request):
             # Handle status updates
             if "statuses" in value:
                 for status in value["statuses"]:
-                    logger.info(
+                    print(
                         f"Status Update | "
                         f"ID: {status.get('id')} | "
                         f"Status: {status.get('status')} | "
@@ -40,7 +40,7 @@ async def receive_webhook(request: Request):
             # Handle incoming messages
             if "messages" in value:
                 for message in value["messages"]:
-                    logger.info(
+                    print(
                         f"Message | "
                         f"ID: {message.get('id')} | "
                         f"From: {message.get('from')} | "

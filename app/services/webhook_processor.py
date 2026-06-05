@@ -25,7 +25,7 @@ class WebhookProcessor:
                     if change.field == "messages":
                         await self._process_messages(change.value)
             
-            logger.info("Webhook processed successfully")
+            print(("Webhook processed successfully")
             
         except Exception as e:
             logger.error(f"Error processing webhook: {e}")
@@ -79,7 +79,7 @@ class WebhookProcessor:
             self.db.add(wa_message)
             await self.db.flush()
             
-            logger.info(f"Stored incoming message: {message.id}")
+            print((f"Stored incoming message: {message.id}")
             
         except Exception as e:
             logger.error(f"Error storing message {message.id}: {e}")
@@ -115,7 +115,7 @@ class WebhookProcessor:
                 message.status = status.status
                 await self.db.flush()
             
-            logger.info(f"Stored status update for message: {status.id} - {status.status}")
+            print((f"Stored status update for message: {status.id} - {status.status}")
             
         except Exception as e:
             logger.error(f"Error storing status update {status.id}: {e}")
